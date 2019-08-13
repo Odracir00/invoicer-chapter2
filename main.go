@@ -52,11 +52,19 @@ func main() {
 			os.Getenv("INVOICER_POSTGRES_SSLMODE"),
 		))
 	} else {
-		log.Println("Opening sqlite connection")
+		log.Println("Error opening postgres connection")
+		log.Println(fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=%s",
+			os.Getenv("INVOICER_POSTGRES_USER"),
+			os.Getenv("INVOICER_POSTGRES_PASSWORD"),
+			os.Getenv("INVOICER_POSTGRES_HOST"),
+			os.Getenv("INVOICER_POSTGRES_DB"),
+			os.Getenv("INVOICER_POSTGRES_SSLMODE"),
+		))
 		db, err = gorm.Open("sqlite3", "invoicer.db")
 	}
 	if err != nil {
-		panic("failed to connect database")
+		log.Println("Opening postgres connection")
+		panic("failed to connect database! DB connection error.")
 	}
 
 	iv.db = db
