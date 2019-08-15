@@ -1,0 +1,1 @@
+{"is_paid": false, "amount": 1664, "due_date":"2016-05-07T23:00:00Z", "charges": [ { "type":"blood work", "amount": 1664, "description": "blood work" } ] }
