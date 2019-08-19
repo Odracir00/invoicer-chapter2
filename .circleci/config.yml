@@ -27,11 +27,11 @@ jobs:
    - run: mkdir -p "${GOPATH_BASE}"
    - run: mkdir -p "${GOPATH_HEAD}/bin"
        
-   - run:
-      name: Testing application
-      command: |
-          go test \
-          github.com/${CIRCLE_PROJECT_REPONAME}
+#   - run:
+#      name: Testing application
+#      command: |
+#          go test \
+#          github.com/${CIRCLE_PROJECT_REPONAME}
 
 ########## Adding ZAP baseline testing to the application ##########
       - run:
